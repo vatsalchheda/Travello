@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Destination
-from .models import Blog
+from .models import Blogs
 # Create your views here.
 
 
@@ -12,5 +12,10 @@ def index(request):
 
 
 def blog(request):
-     blogs = Blogs.objects.all()
-     return render(request, "dummy.html", {'blogs': blogs})
+    blogs = Blogs.objects.all()
+    return render(request, "blog.html", {'blogs': blogs})
+
+
+def blogindex(request):
+    blogs = Blogs.objects.all()
+    return render(request, "index1.html", {'blogs': blogs})

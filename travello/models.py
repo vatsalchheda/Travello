@@ -11,7 +11,8 @@ class Destination(models.Model):
     off = models.BooleanField(default=False)
 
 
-class Blog(models.Model):
-    Title = models.CharField(max_length=100)
+class Blogs(models.Model):
+    date = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
     img = models.ImageField(upload_to='pics')
-    content = models.TextField()
+    desc = models.TextField()

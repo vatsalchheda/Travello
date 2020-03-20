@@ -10,7 +10,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'styles/bootstrap4/bootstrap.min.css' %}"
+      href="{%static 'styles/bootstrap4/bootstrap.min.css' %}"
     />
     <link
       href="{%static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}"
@@ -65,13 +65,13 @@
                     >
                       <li class="active"><a href="index.html">Home</a></li>
                       {% if user.is_authenticated %}
-                      <li>Hello, {{User.first_name}}</li>
                       <li><a href="accounts/logout">Logout</a></li>
                       {% else %}
                       <li><a href="accounts/register">Regsiter</a></li>
                       <li><a href="accounts/login">Login</a></li>
                       {% endif %}
                       <li><a href="contact.html">Contact</a></li>
+                      <li><a href="blogindex.html">Stories</a></li>
                     </ul>
                   </nav>
                   <div class="header_phone ml-auto">
@@ -120,7 +120,7 @@
         <div
           class="menu_header d-flex flex-row align-items-center justify-content-start"
         >
-          <div class="menu_logo"><a href="index.html">Travello</a></div>
+          <div class="menu_logo"><a href="">Travello</a></div>
           <div class="menu_close_container ml-auto">
             <div class="menu_close">
               <div></div>
@@ -130,10 +130,15 @@
         </div>
         <div class="menu_content">
           <ul>
-            <li class="active"><a href="index.html">Home</a></li>
+            <li class="active"><a href="">Home</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="accounts/logout">Logout</a></li>
+            {% else %}
             <li><a href="accounts/register">Regsiter</a></li>
             <li><a href="accounts/login">Login</a></li>
+            {% endif %}
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="blogindex.html">Stories</a></li>
           </ul>
         </div>
         <div class="menu_social">
