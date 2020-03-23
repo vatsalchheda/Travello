@@ -1,32 +1,48 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Registeration</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-  </head>
-  <body>
-    <form action="register" method="post">
-      {% csrf_token %}
-      <input type="text" name="first_name" placeholder="First Name" /> <br />
-      <input type="text" name="last_name" placeholder="Last Name" /> <br />
-      <input type="text" name="username" placeholder="User Name" /> <br />
-      <input type="email" name="email" placeholder="Email" /> <br />
-      <input type="password" name="password1" placeholder="Enter Password" />
-      <br />
-      <input type="password" name="password2" placeholder="Confirm Password" />
-      <br />
-      <input type="Submit" />
-    </form>
-    <div>
-      {% for message in messages %}
-      <h3>
-        {{message}}
-      </h3>
-      {% endfor %}
-    </div>
-  </body>
-</html>
+{% extends "Base.html" %} {% load staticfiles %}{% block title %}Login
+{%endblock %} {% block nav %}
+<ul class="d-flex flex-row align-items-start justify-content-start">
+  <li><a href="/">Home</a></li>
+  {% if user.is_authenticated %}
+  <li><a href="logout">Logout</a></li>
+  {% else %}
+  <li class="active"><a href="register">Regsiter</a></li>
+  <li><a href="login">Login</a></li>
+  {% endif %}
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="/blogindex.html">Stories</a></li>
+</ul>
+{% endblock %} {% block without_container %}
+<div style="text-align : center;">
+  <form action="register" method="post">
+    {% csrf_token %}
+    <input type="text" name="first_name" placeholder="First Name" /> <br />
+    <br />
+    <input type="text" name="last_name" placeholder="Last Name" /> <br />
+    <br />
+    <input type="text" name="username" placeholder="User Name" /> <br />
+    <br />
+    <input type="email" name="email" placeholder="Email" /> <br />
+    <br />
+    <input
+      type="password"
+      name="password1"
+      placeholder="Enter Password"
+    /><br />
+    <br />
+    <input
+      type="password"
+      name="password2"
+      placeholder="Confirm Password"
+    /><br />
+    <br />
+    <input type="Submit" />
+  </form>
+</div>
+<div>
+  {% for message in messages %}
+  <h3>
+    {{message}}
+  </h3>
+  {% endfor %}
+</div>
+{% endblock %}
