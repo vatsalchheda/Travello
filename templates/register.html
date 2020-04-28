@@ -8,10 +8,22 @@
   <li class="active"><a href="register">Regsiter</a></li>
   <li><a href="login">Login</a></li>
   {% endif %}
-  <li><a href="contact.html">Contact</a></li>
+  <li><a href="/contact.html">Contact</a></li>
   <li><a href="/blogindex.html">Stories</a></li>
 </ul>
-{% endblock %} {% block without_container %}
+{% endblock %}
+{% block menu %}
+<li class="active"><a href="/">Home</a></li>
+{% if user.is_authenticated %}
+<li><a href="/logout">Logout</a></li>
+{% else %}
+<li class="active"><a href="register">Regsiter</a></li>
+<li class="active"><a href="login">Login</a></li>
+{% endif %}
+<li><a href="contact.html">Contact</a></li>
+<li><a href="blogindex.html">Stories</a></li>
+{% endblock %}
+{% block without_container %}
 <div style="text-align : center;">
   <form action="register" method="post">
     {% csrf_token %}
@@ -23,17 +35,9 @@
     <br />
     <input type="email" name="email" placeholder="Email" /> <br />
     <br />
-    <input
-      type="password"
-      name="password1"
-      placeholder="Enter Password"
-    /><br />
+    <input type="password" name="password1" placeholder="Enter Password" /><br />
     <br />
-    <input
-      type="password"
-      name="password2"
-      placeholder="Confirm Password"
-    /><br />
+    <input type="password" name="password2" placeholder="Confirm Password" /><br />
     <br />
     <input type="Submit" />
   </form>

@@ -1,0 +1,333 @@
+{% load static %} {% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Travello template project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="{%static 'styles/bootstrap4/bootstrap.min.css' %}" />
+    <link href="{%static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/animate.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'styles/main_styles.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'styles/responsive.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="AboutPage.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+            font-weight: 300;
+            font-size: 18px;
+            color: white
+        }
+
+        h6 {
+            display: inline;
+        }
+
+        hr {
+            margin: 10px 75px;
+        }
+
+        /* selecting by class name */
+        .nav-link {
+            text-align: left;
+        }
+
+        .dropdown-item {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .social {
+            margin: 30px;
+            color: black;
+            margin-top: 50px;
+            -webkit-animation: fadein 2s;
+        }
+
+        .social_logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .about {
+            margin-right: 15%;
+            margin-left: 15%;
+            margin-bottom: 50px;
+        }
+
+        .picture {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        #header {
+            margin-top: 0px;
+            height: 450px;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 50px;
+            width: 120%;
+        }
+
+        #picture {
+            height: 300px;
+            border-radius: 50%;
+            border: 3px solid rgb(26, 140, 255);
+            margin: 30px;
+            -webkit-animation: fadein 2s;
+        }
+
+        #profileName {
+            font-size: 70px;
+            margin: 20px;
+            -webkit-animation: fadein 2s;
+        }
+
+        #bio {
+            margin: 40px;
+            -webkit-animation: fadein 2s;
+        }
+
+        #follow {
+            -webkit-animation: fadein 2s;
+        }
+
+        #check {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="header">
+        <header class="header">
+            <div class="row">
+                <div class="col">
+                    <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+                            <div class="logo"><a href="/">Travello</a></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-start justify-content-start">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li class="active"><a href="about.html">About</a></li>
+                                    {% if user.is_authenticated %}
+                                    <li><a href="accounts/logout">Logout</a></li>
+                                    {% else %}
+                                    <li><a href="accounts/register">Regsiter</a></li>
+                                    <li><a href="accounts/login">Login</a></li>
+                                    {% endif %}
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="blogindex.html">Stories</a></li>
+                                </ul>
+                            </nav>
+                            <div class="header_phone ml-auto">
+                                Call us: 00-56 445 678 33
+                            </div>
+
+                            <!-- Hamburger -->
+
+                            <div class="hamburger ml-auto">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="header_social d-flex flex-row align-items-center justify-content-start">
+        <ul class="d-flex flex-row align-items-start justify-content-start">
+            <li>
+                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </li>
+        </ul>
+    </div>
+    </header>
+
+    <!-- Menu -->
+
+    <div class="menu">
+        <div class="menu_header d-flex flex-row align-items-center justify-content-start">
+            <div class="menu_logo"><a href="">Travello</a></div>
+            <div class="menu_close_container ml-auto">
+                <div class="menu_close">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="menu_content">
+            <ul>
+                <li class="active"><a href="/">Home</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="accounts/logout">Logout</a></li>
+                {% else %}
+                <li><a href="accounts/register">Regsiter</a></li>
+                <li><a href="accounts/login">Login</a></li>
+                {% endif %}
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blogindex.html">Stories</a></li>
+            </ul>
+        </div>
+        <div class="menu_social">
+            <div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>
+            <ul class="d-flex flex-row align-items-start justify-content-start">
+                <li>
+                    <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <h1 id="profileName"></h1>
+        <h5 id="bio"></h5>
+    </div>
+    <div>
+        <h2>About Us</h2> <br>
+        <div class="about">
+            <p>Welcome to Travello, your number one source for all things travel. We're dedicated to providing you the
+                very best of travel, with an emphasis on experience, affordability and safety.</p>
+            <p>Founded in 1992 by Alex Ferguson, Travello has come a long way from its beginnings in Mumbai. When
+                Ferguson first started out, his passion for the best travel experience drove him to start his own
+                business.</p>
+            <p>We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or
+                comments, please don't hesitate to contact us.</p>
+            <p>Sincerely, <br>
+                Alex Ferguson</p>
+        </div>
+
+        <h2>By The Numbers</h2><br>
+        <div class="row">
+            <div class="col-lg-3">
+                <h1>140575</h1>
+                <p>People have travelled with us</p>
+            </div>
+            <div class="col-lg-3">
+                <h1>150</h1>
+                <p>Destinations around the world</p>
+            </div>
+            <div class="col-lg-3">
+                <h1>45</h1>
+                <p>Languages spoken by our guides</p>
+            </div>
+            <div class="col-lg-3">
+                <h1>#1</h1>
+                <p>World's most popular travel website</p>
+            </div>
+        </div><br><br>
+        <h2>Mission and Vision</h2> <br>
+        <div class="about">
+            <h3>Honesty</h3>
+            <p>Alemana Tours works with honest employees, with honest, fair and competitive market prices. We strive to
+                demonstrate honest behavior towards our environment (clients, suppliers and other parties who we conduct
+                business with).</p>
+            <h3>Transparency</h3>
+            <p>Alemana Tours strive to be clear in our products, services and processes. Be transparent to our direct
+                environment.</p>
+            <h3>Quality</h3>
+            <p>Clients come in the first place, Alemana Tours strive for an optimal service level in order to get the
+                clients best value for his tour. To achieve this we look for the best people and operators involved in
+                our business and we design our services and products in the best way.</p>
+            <h3>Personal</h3>
+            <p>Alemana Tours like to give tailor made advice as every person is different with different wishes. It
+                means personal commitment, aimed on establishing a temporarily, personal bond which enables us to really
+                help you to get the best value for your tour. It also means a friendly service with a smile, with some
+                humor.</p>
+            <h3>Sustainable tourism</h3>
+            <p>Alemana Tours conducts business in a sustainable way. We also take into account the interest of the local
+                people, preserve the cultural heritage, we take care of our environment and focusing economically on
+                long term results and fair economic fair practices.</p>
+            <h3>Professional</h3>
+            <p>We take our business very serious. It means our behavior is correct, objective, balanced, efficient and
+                reliable. We are down to earth in the way we conduct business.</p>
+            <h3>Community</h3>
+            <p>10% of Travello's total profits are sent to our charitable trust, which aims at providing children across
+                the world with a quality education and upbringing, and helping families around the world maintain a fair
+                standard of living.</p>
+        </div><br><br>
+        <h2>Our Team</h2> <br>
+        <div class=row>
+            <div class="col-lg-3">
+                <img src="" class="picture">
+                <h3>Vatsal Chheda</h3>
+            </div>
+            <div class="col-lg-3">
+                <img src="" class="picture">
+                <h3>Vanshay Gupta</h3>
+            </div>
+            <div class="col-lg-3">
+                <img src="" class="picture">
+                <h3>Uditi Namdev</h3>
+            </div>
+            <div class="col-lg-3">
+                <img src="" class="picture">
+                <h3>Simrn Gupta</h3>
+            </div>
+        </div> <br><br>
+        <h2>Follow Us</h2> <br>
+        <a class="social" href="#"><img class="social_logo"
+                src="https://www.facebook.com/images/fb_icon_325x325.png"></a>
+        <a class="social" href="#"><img class="social_logo"
+                src="https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/twitter-512.png"></a>
+        <a class="social" href="#"><img class="social_logo"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png"></a>
+        <a class="social" href="#"><img class="social_logo"
+                src="https://i.pinimg.com/originals/92/76/3c/92763c905d426fc9e53ba6de73202a36.png"></a> <br> <br> <br>
+    </div>
+
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+    <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+    <script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+    <script src="{% static 'plugins/easing/easing.js' %}"></script>
+    <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>

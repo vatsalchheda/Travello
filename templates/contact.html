@@ -1,0 +1,105 @@
+{% extends "Base.html" %} {% load staticfiles %}{% block title %}Login
+{%endblock %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="ContactPage.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css">
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-weight: 300;
+        font-size: 18px;
+        color: white;
+    }
+
+    h6 {
+        display: inline;
+    }
+
+    hr {
+        margin: 10px 75px;
+    }
+
+    .heading {
+        margin: 10px auto;
+        font-weight: bold;
+        color: rgb(26, 140, 255);
+        letter-spacing: 3px;
+        text-align: center;
+    }
+
+    .break-text p {
+        word-wrap: break-word;
+    }
+
+    .contactHeading {
+        margin-bottom: 30px;
+        font-weight: bold;
+        color: white;
+    }
+
+
+    #contactBox {
+        margin-bottom: 50px;
+    }
+
+    #website:hover {
+        color: blue;
+    }
+
+    #addressPicture {
+        width: 250px;
+        height: 200px;
+        display: inline;
+    }
+</style>
+{% endblock %}
+{% block nav %}
+<ul class="d-flex flex-row align-items-start justify-content-start">
+    <li><a href="/">Home</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="logout">Logout</a></li>
+    {% else %}
+    <li><a href="accounts/register">Regsiter</a></li>
+    <li><a href="accounts/login">Login</a></li>
+    {% endif %}
+    <li class="active"><a href="contact.html">Contact</a></li>
+    <li><a href="/blogindex.html">Stories</a></li>
+</ul>
+{% endblock %}
+{% block menu %}
+<li class="active"><a href="/">Home</a></li>
+{% if user.is_authenticated %}
+<li><a href="/logout">Logout</a></li>
+{% else %}
+<li><a href="accounts/register">Regsiter</a></li>
+<li class="active"><a href="accounts/login">Login</a></li>
+{% endif %}
+<li><a href="contact.html">Contact</a></li>
+<li><a href="blogindex.html">Stories</a></li>
+
+{% endblock %}{% block without_container %}
+<div id="contactBox">
+    <h3 class="heading" id="contact"><i class="fas fa-address-book"></i> CONTACT</h3>
+    <hr><br>
+    <div>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 break-text">
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15080.05015075494!2d72.8371074!3d19.1071059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x75f29a4205098f99!2sDwarkadas%20Jivanlal%20Sanghvi%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1584954160945!5m2!1sen!2sin"
+                            id="addressPicture"></iframe></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

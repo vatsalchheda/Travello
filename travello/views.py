@@ -19,3 +19,11 @@ def blog(request):
 def blogindex(request):
     blogs = Blogs.objects.all()
     return render(request, "index1.html", {'blogs': blogs})
+
+
+def contact(request):
+    return render(request, "contact.html")
+
+
+def about(request):
+    return render(request, "about.html")
